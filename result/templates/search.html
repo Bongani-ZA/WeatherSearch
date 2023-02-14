@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="container">
+	<div class="section-top-border">
+				<h3 class="mb-30">Search Results</h3>
+				<form action="{% url 'save-result' %}">
+					{% csrf_token %}
+					{{ form }}
+					<div class="progress-table-wrap">
+					<div class="progress-table">
+						<div class="table-head">
+							<div class="serial"></div>
+							<div class="country">Address</div>
+							<div class="visit">Longitude</div>
+							<div class="visit">Latitude</div>
+							<div class="visit">Date</div>
+							<div class="visit">Time</div>
+							<div class="visit">Temperature</div>
+						</div>
+						<div class="table-row">
+							<div class="serial"></div>
+							<div class="country" >{{ address }}</div>
+							<div class="visit">{{ longitude }}</div>
+							<div class="visit">{{ latitude }}</div>
+							<div class="visit">{{ date }}</div>
+							<div class="visit">{{ time }}</div>
+							<div class="visit">{{ temperature }}</div>
+						</div>
+					</div>
+					<br>
+					<div class="header-btn d-none f-right d-lg-block">
+						<button class="btn head-btn1" type="submit">Save Result</button>
+					</div>
+					<br>
+				</div>
+				</form>
+
+			</div>
+	</div>
+
+{% endblock content %}

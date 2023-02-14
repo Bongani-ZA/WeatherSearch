@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+	<div class="container">
+	<div class="section-top-border">
+				<h3 class="mb-30">Table</h3>
+				<div class="progress-table-wrap">
+					<div class="progress-table">
+						<div class="table-head">
+							<div class="serial">#</div>
+							<div class="country">Address</div>
+							<div class="visit">Longitude</div>
+							<div class="visit">Latitude</div>
+							<div class="visit">Date</div>
+							<div class="visit">Time</div>
+							<div class="visit">Temperature</div>
+						</div>
+						{% for result in results %}
+						<div class="table-row">
+							<div class="serial">{{ forloop.counter }}.</div>
+							<div class="country">{{ result.address }}</div>
+							<div class="visit">{{ result.longitude }}</div>
+							<div class="visit">{{ result.latitude }}</div>
+							<div class="visit">{{ result.date }}</div>
+							<div class="visit">{{ result.time }}</div>
+							<div class="visit">{{ result.temperature }}</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+	</div>
+
+{% endblock content %}
