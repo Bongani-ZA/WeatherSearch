@@ -1,9 +1,10 @@
 import requests
 import json
+from decouple import config
 
 
 def get_weather(longitude, latitude):
-    access_token = '4d7b59699fd915c21ea1ccc1de5749b5'
+    access_token = config('LOCATION_TOKEN')
     url = f'https://api.openweathermap.org/data/3.0/onecall?lat={latitude}&lon={longitude}&appid={access_token}&units=metric'
     response = requests.get(url)
     response_text = response.text

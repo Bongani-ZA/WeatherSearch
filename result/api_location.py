@@ -1,9 +1,11 @@
 import requests
 import json
+from decouple import config
 
 
 def get_location(address):
-    access_token = 'pk.eyJ1IjoiYm9uZ2FuaS16YSIsImEiOiJjbGRvdWRoanAwaTF4M29xMG5uMjlzMWpzIn0.mbIZkSc4Cq09Tmz9Kp4HkQ'
+    
+    access_token = config('LOCATION_TOKEN')
     url = f'https://api.mapbox.com/geocoding/v5/mapbox.places/{address}.json?limit=1&proximity=ip&types=place%2Cpostcode%2Caddress&access_token={access_token}'
     response = requests.get(url)
 
